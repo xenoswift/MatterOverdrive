@@ -16,8 +16,8 @@
  * along with Matter Overdrive.  If not, see <http://www.gnu.org/licenses>.
  */
 
-package matteroverdrive.handler;
-
+//package matteroverdrive.handler;
+/*
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -38,10 +38,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-
+*/
 /**
  * Created by Simeon on 5/7/2015.
  */
+/*
 public class VersionCheckerHandler implements IConfigSubscriber {
     private boolean updateInfoDisplayed = false;
     public Future<String> download;
@@ -169,3 +170,4 @@ public class VersionCheckerHandler implements IConfigSubscriber {
         config.config.get(ConfigurationHandler.CATEGORY_CLIENT, ConfigurationHandler.KEY_VERSION_CHECK,true).comment = comment;
     }
 }
+*/

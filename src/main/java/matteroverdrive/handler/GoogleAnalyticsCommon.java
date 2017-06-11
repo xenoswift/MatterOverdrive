@@ -1,15 +1,16 @@
-package matteroverdrive.handler;
-
+//package matteroverdrive.handler;
+/*
 import com.brsanthu.googleanalytics.*;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import matteroverdrive.Reference;
 import matteroverdrive.util.IConfigSubscriber;
 import net.minecraft.entity.player.EntityPlayer;
-
+*/
 /**
  * Created by Simeon on 1/7/2016.
  */
+/*
 public class GoogleAnalyticsCommon implements IConfigSubscriber
 {
     private String lastScreen;
@@ -110,3 +111,4 @@ public class GoogleAnalyticsCommon implements IConfigSubscriber
         }
     }
 }
+*/

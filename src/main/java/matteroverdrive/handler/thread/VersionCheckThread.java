@@ -16,16 +16,17 @@
  * along with Matter Overdrive.  If not, see <http://www.gnu.org/licenses>.
  */
 
-package matteroverdrive.handler.thread;
-
+//package matteroverdrive.handler.thread;
+/*
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
-
+*/
 /**
  * Created by Simeon on 7/13/2015.
  */
+/*
 public class VersionCheckThread implements Callable<String>
 {
     String url;
@@ -57,3 +58,4 @@ public class VersionCheckThread implements Callable<String>
         return response.toString();
     }
 }
+*/

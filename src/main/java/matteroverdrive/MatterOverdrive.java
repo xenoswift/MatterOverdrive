@@ -44,7 +44,14 @@ import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS, dependencies = Reference.DEPEDNENCIES)
+@Mod(
+		modid = Reference.MOD_ID,
+		name = Reference.MOD_NAME,
+        version = Reference.VERSION,
+        guiFactory = Reference.GUI_FACTORY_CLASS,
+        dependencies = Reference.DEPEDNENCIES,
+        acceptedMinecraftVersions = "1.7.10"
+)
 public class MatterOverdrive
 {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
@@ -184,14 +191,14 @@ public class MatterOverdrive
 		event.registerServerCommand(new QuestCommands());
 		event.registerServerCommand(new SaveWorldToImage());
 		event.registerServerCommand(new WorldGenCommands());
-        proxy.getGoogleAnalytics().load();
+//        proxy.getGoogleAnalytics().load();
 	}
 
-    @EventHandler
-    public void serverStopping(FMLServerStoppingEvent event)
-    {
-        proxy.getGoogleAnalytics().unload();
-    }
+//    @EventHandler
+//    public void serverStopping(FMLServerStoppingEvent event)
+//    {
+//        proxy.getGoogleAnalytics().unload();
+//    }
 
     @EventHandler
     public void serverStart(FMLServerStartedEvent event)

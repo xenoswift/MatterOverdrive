@@ -1,15 +1,15 @@
-package matteroverdrive.handler;
-
+//package matteroverdrive.handler;
+/*
 import com.brsanthu.googleanalytics.GoogleAnalyticsRequest;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-
+*/
 /**
  * Created by Simeon on 1/7/2016.
  */
-@SideOnly(Side.CLIENT)
+/*@SideOnly(Side.CLIENT)
 public class GoogleAnalyticsClient extends GoogleAnalyticsCommon
 {
     @Override
@@ -23,3 +23,4 @@ public class GoogleAnalyticsClient extends GoogleAnalyticsCommon
         return super.changeUserID(request,entityPlayer);
     }
 }
+*/
