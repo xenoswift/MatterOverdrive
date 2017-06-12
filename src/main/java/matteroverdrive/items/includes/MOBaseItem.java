@@ -86,16 +86,16 @@ public class MOBaseItem extends Item
 		this.register(this.getUnlocalizedName().substring(5));
 	}
 
-	public void InitTagCompount(ItemStack stack)
+	public void InitTagCompound(ItemStack stack)
 	{
 		stack.setTagCompound(new NBTTagCompound());
 	}
 
-	public void TagCompountCheck(ItemStack stack)
+	public void TagCompoundCheck(ItemStack stack)
 	{
 		if(!stack.hasTagCompound())
 		{
-			InitTagCompount(stack);
+			InitTagCompound(stack);
 		}
 	}
 

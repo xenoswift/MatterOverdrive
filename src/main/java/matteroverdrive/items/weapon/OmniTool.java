@@ -81,7 +81,7 @@ public class OmniTool extends EnergyWeapon
     @Override
     public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player)
     {
-        this.TagCompountCheck(item);
+        this.TagCompoundCheck(item);
 
         if (canDig(item, world))
         {

@@ -28,7 +28,7 @@ public class MOGuideEntryBlock extends MOGuideEntry
 {
     public MOGuideEntryBlock(Block block)
     {
-        super(block.getUnlocalizedName(),null);
+        super(block.getUnlocalizedName(), (ItemStack) null);
         setStackIcons(block);
     }
     public MOGuideEntryBlock(Block blockIcon,String name)

@@ -255,29 +255,29 @@ public class DataPad extends MOBaseItem implements IBlockScanner
     //region Setters
     public void setOrdering(ItemStack stack,int order)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         stack.getTagCompound().setInteger("Ordering", order);
     }
 
     public void setOpenGuide(ItemStack stack,int guideID)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         stack.getTagCompound().setInteger("guideID",guideID);
     }
 
     public void setOpenPage(ItemStack stack,int page)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         stack.getTagCompound().setInteger("page",page);
     }
     public void setCategory(ItemStack stack,String category)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         stack.getTagCompound().setString("Category",category);
     }
     public void setSelectedActiveQuest(ItemStack itemStack,int quest)
     {
-        TagCompountCheck(itemStack);
+        TagCompoundCheck(itemStack);
         itemStack.getTagCompound().setShort("SelectedActiveQuest",(short) quest);
     }
     //endregion
@@ -285,7 +285,7 @@ public class DataPad extends MOBaseItem implements IBlockScanner
     //region Getters
     public int getGuideID(ItemStack stack)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         if (hasOpenGuide(stack))
         {
             return stack.getTagCompound().getInteger("guideID");
@@ -294,12 +294,12 @@ public class DataPad extends MOBaseItem implements IBlockScanner
     }
     public int getPage(ItemStack stack)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         return stack.getTagCompound().getInteger("page");
     }
     public boolean hasOpenGuide(ItemStack stack)
     {
-        TagCompountCheck(stack);
+        TagCompoundCheck(stack);
         return stack.getTagCompound().hasKey("guideID", Constants.NBT.TAG_INT);
     }
     public int getOrdering(ItemStack stack)

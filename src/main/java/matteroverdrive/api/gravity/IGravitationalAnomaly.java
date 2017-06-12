@@ -95,6 +95,7 @@ public interface IGravitationalAnomaly
      * @return the overall block break strength of the anomaly.
      * @deprecated use {@link #getBreakStrength(float, float)} to get the exact break strength at a given distance.
      */
+    @Deprecated
     float getBreakStrength();
 
     /**

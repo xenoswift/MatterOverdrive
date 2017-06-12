@@ -19,11 +19,21 @@
 package matteroverdrive.items.includes;
 
 import cofh.api.energy.IEnergyContainerItem;
+import com.google.common.base.Throwables;
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import matteroverdrive.init.MatterOverdriveItems;
 import matteroverdrive.util.MOEnergyHelper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ContainerWorkbench;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.inventory.SlotCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import static matteroverdrive.util.MOEnergyHelper.setDefaultEnergyTag;
@@ -33,6 +43,8 @@ public class MOItemEnergyContainer extends MOBaseItem implements IEnergyContaine
 	protected int capacity;
 	protected int maxReceive;
 	protected int maxExtract;
+
+
 
 	public MOItemEnergyContainer(String name)
 	{
@@ -68,15 +80,21 @@ public class MOItemEnergyContainer extends MOBaseItem implements IEnergyContaine
         return true;
     }
 
-	public int getDisplayDamage(ItemStack stack)
-	{
+	@Override
+	public double getDurabilityForDisplay(ItemStack stack) {
 		return getMaxEnergyStored(stack) - getEnergyStored(stack);
 	}
+
+//	@Override
+//	public int getDisplayDamage(ItemStack stack)
+//	{
+//		return getMaxEnergyStored(stack) - getEnergyStored(stack);
+//	}
 
 	@Override
 	public void addDetails(ItemStack itemstack, EntityPlayer player, List infos)
 	 {
-		this.TagCompountCheck(itemstack);
+		this.TagCompoundCheck(itemstack);
 		infos.add(EnumChatFormatting.YELLOW + MOEnergyHelper.formatEnergy(getEnergyStored(itemstack), getMaxEnergyStored(itemstack)));
 	 }
 
@@ -112,7 +130,7 @@ public class MOItemEnergyContainer extends MOBaseItem implements IEnergyContaine
 	@Override
 	public int receiveEnergy(ItemStack container, int maxReceive, boolean simulate) {
 
-		this.TagCompountCheck(container);
+		this.TagCompoundCheck(container);
 
 		int energy = container.stackTagCompound.getInteger("Energy");
 		int energyReceived = Math.min(capacity - energy, Math.min(this.maxReceive, maxReceive));
@@ -142,7 +160,7 @@ public class MOItemEnergyContainer extends MOBaseItem implements IEnergyContaine
         return 0;
 	}
 
-	protected void setEnergyStored(ItemStack container,int amount)
+	protected void setEnergyStored(ItemStack container, int amount)
 	{
 		setDefaultEnergyTag(container, amount);
 	}
@@ -150,7 +168,7 @@ public class MOItemEnergyContainer extends MOBaseItem implements IEnergyContaine
 	@Override
 	public int getEnergyStored(ItemStack container)
 	{
-		this.TagCompountCheck(container);
+		this.TagCompoundCheck(container);
 		return container.stackTagCompound.getInteger("Energy");
 	}
 
@@ -159,4 +177,83 @@ public class MOItemEnergyContainer extends MOBaseItem implements IEnergyContaine
 	{
 		return capacity;
 	}
+
+
+
+
+//    @Override
+//    public boolean matches(InventoryCrafting inv, World world) {
+//        EntityPlayer player = findPlayer(inv);
+//        return player != null && hasBattery(inv);
+//    }
+//
+//    @Override
+//    public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting)
+//    {
+//        ItemStack stack = getRecipeOutput().copy();
+//        for (int i = 0;i < inventoryCrafting.getSizeInventory();i++)
+//        {
+//            if (inventoryCrafting.getStackInSlot(i) != null && inventoryCrafting.getStackInSlot(i).getItem() instanceof IEnergyContainerItem)
+//            {
+//                int energyStored = ((IEnergyContainerItem) inventoryCrafting.getStackInSlot(i).getItem()).getEnergyStored(inventoryCrafting.getStackInSlot(i));
+//                int packEnergy = MatterOverdriveItems.energyPack.getEnergyAmount(inventoryCrafting.getStackInSlot(i));
+//                if (energyStored > 0)
+//                {
+//                    stack.stackSize = energyStored / packEnergy;
+//                    return stack;
+//                }
+//            }
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    public int getRecipeSize() {
+//        return 1;
+//    }
+//
+//    @Override
+//    public ItemStack getRecipeOutput() {
+//        return new ItemStack(MatterOverdriveItems.battery);
+//    }
+//
+//    private static boolean hasBattery(InventoryCrafting inv)
+//    {
+//        Item batt = MatterOverdriveItems.battery;
+//        for (int i = 0; i < inv.getSizeInventory(); i++)
+//        {
+//            ItemStack istack = inv.getStackInSlot(i);
+//            if (istack != null && istack.getItem() == batt)
+//            {
+//                return true;
+//            }
+//        }
+//        return false;
+//
+//    }
+//
+//
+//    private static final Field eventHandlerField = ReflectionHelper.findField(InventoryCrafting.class, "eventHandler");
+//    //    private static final Field containerPlayerField = ReflectionHelper.findField(ContainerPlayer.class, "thePlayer");
+//    private static final Field slotCraftingPlayerField = ReflectionHelper.findField(SlotCrafting.class, "thePlayer");
+//
+//    private static EntityPlayer findPlayer(InventoryCrafting inv)
+//    {
+//        try
+//        {
+//            Container con = (Container) eventHandlerField.get(inv);
+//            if (con instanceof ContainerWorkbench)
+//            {
+//                return (EntityPlayer) slotCraftingPlayerField.get(con.getSlot((0)));
+//            }
+//            else
+//            {
+//                return null;
+//            }
+//
+//        } catch (Exception e) {
+//            throw Throwables.propagate(e);
+//        }
+//
+//    }
 }

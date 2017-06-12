@@ -137,7 +137,7 @@ public class PatternDrive extends MOBaseItem implements IMatterPatternStorage
     }
 
     @Override
-    public void InitTagCompount(ItemStack stack)
+    public void InitTagCompound(ItemStack stack)
     {
         NBTTagCompound tagCompound = new NBTTagCompound();
         tagCompound.setShort(MatterDatabaseHelper.CAPACITY_TAG_NAME, (short) capacity);
@@ -149,7 +149,7 @@ public class PatternDrive extends MOBaseItem implements IMatterPatternStorage
     @Override
     public ItemPattern[] getPatterns(ItemStack storage)
     {
-        TagCompountCheck(storage);
+        TagCompoundCheck(storage);
         NBTTagList tagList = storage.getTagCompound().getTagList(MatterDatabaseHelper.ITEMS_TAG_NAME, 10);
         ItemPattern[] patterns = new ItemPattern[tagList.tagCount()];
         for (int i = 0;i < tagList.tagCount();i++)
@@ -163,7 +163,7 @@ public class PatternDrive extends MOBaseItem implements IMatterPatternStorage
     @Override
     public boolean addItem(ItemStack storage, ItemStack itemStack,int initialAmount,boolean simulate)
     {
-        TagCompountCheck(storage);
+        TagCompoundCheck(storage);
 
         NBTTagList patternsTagList = storage.getTagCompound().getTagList(MatterDatabaseHelper.ITEMS_TAG_NAME, Constants.NBT.TAG_COMPOUND);
         if(patternsTagList.tagCount() < getCapacity(storage))
@@ -189,14 +189,14 @@ public class PatternDrive extends MOBaseItem implements IMatterPatternStorage
     @Override
     public ItemPattern getPattern(ItemStack storage, ItemStack item)
     {
-        TagCompountCheck(storage);
+        TagCompoundCheck(storage);
         return  MatterDatabaseHelper.getPatternFromStorage(storage, item);
     }
 
     @Override
     public int getCapacity(ItemStack item)
     {
-        TagCompountCheck(item);
+        TagCompoundCheck(item);
         return item.getTagCompound().getShort(MatterDatabaseHelper.CAPACITY_TAG_NAME);
     }
 

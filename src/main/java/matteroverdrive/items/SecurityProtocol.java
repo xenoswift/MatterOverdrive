@@ -100,7 +100,7 @@ public class SecurityProtocol extends MOBaseItem {
         if (!stack.hasTagCompound())
         {
             if (player.isSneaking()) {
-                TagCompountCheck(stack);
+                TagCompoundCheck(stack);
                 stack.getTagCompound().setString("Owner", player.getGameProfile().getId().toString());
                 stack.setItemDamage(1);
             }

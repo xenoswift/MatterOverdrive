@@ -26,7 +26,7 @@ public class Reference
 	public static final String MOD_ID = "mo";
 	public static final String MOD_NAME = "Matter Overdrive";
 	public static final String VERSION = "0.4.3-x";
-	public static final String VERSION_DATE = "20.09.2016";
+	public static final String VERSION_DATE = "11.06.2017";
 	public static final String GUI_FACTORY_CLASS = "matteroverdrive.gui.GuiConfigFactory";
 	public static final String DEPEDNENCIES = "after:ThermalExpansion;after:exnihilo;after:EnderIO;";
 	public static final String CLIENT_PROXY_CLASS = "matteroverdrive.proxy.ClientProxy";
@@ -34,8 +34,8 @@ public class Reference
 	public static final String CHANNEL_NAME = MOD_ID + "_channel";
 	public static final String CHANNEL_WEAPONS_NAME = MOD_ID + "_channel:weapons";
 	public static final String CHANNEL_GUI_NAME = MOD_ID + "_channel:gui";
-	public static final String VERSIONS_CHECK_URL = "https://mo.simeonradivoev.com/wp-json/posts?type[]=mo_download&filter[posts_per_page]=1";
-	public static final String DOWNLOAD_URL = "https://mo.simeonradivoev.com/download_category/downloads/";
+//	public static final String VERSIONS_CHECK_URL = "https://mo.simeonradivoev.com/wp-json/posts?type[]=mo_download&filter[posts_per_page]=1";
+//	public static final String DOWNLOAD_URL = "https://mo.simeonradivoev.com/download_category/downloads/";
 
 
 	//region GUI

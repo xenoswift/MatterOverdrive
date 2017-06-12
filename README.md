@@ -49,10 +49,9 @@ If your crash or problem was fixed, but is not yet released as a public download
 2. Setup workspcae.
   - gradlew setupDecompWorkspace
   - gradlew idea (or eclipse if you like i suppose)
-  - pray
-Should be good to go.
+  - Pray. Should be good to go.
 3. ???
-4. Make a separate branch entirely before you modify things to contribute, that way you submit a PR and I can fold in your branch instead of trying to mesh your changes with my autism.
+4. Submit a PR? I guess? Try not to break everything?
   
 ## IMC
 See the example on [IMC](https://github.com/simeonradivoev/MatterOverdrive/blob/master/src/main/java/matteroverdrive/api/IMC.java) or you can see the [IMC handler](https://github.com/simeonradivoev/MatterOverdrive/blob/master/src/main/java/matteroverdrive/imc/MOIMCHandler.java).

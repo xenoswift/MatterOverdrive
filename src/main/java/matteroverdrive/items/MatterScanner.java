@@ -191,7 +191,7 @@ public class MatterScanner extends MOBaseItem implements IBlockScanner
 	{
 		if(scanner.getItem() instanceof MatterScanner)
 		{
-			((MatterScanner)scanner.getItem()).TagCompountCheck(scanner);
+			((MatterScanner)scanner.getItem()).TagCompoundCheck(scanner);
 		}
 
 		if(scanner.hasTagCompound())
@@ -283,7 +283,7 @@ public class MatterScanner extends MOBaseItem implements IBlockScanner
 
 
 	@Override
-	public void InitTagCompount(ItemStack stack)
+	public void InitTagCompound(ItemStack stack)
 	{
         MatterDatabaseHelper.initTagCompound(stack);
 	}
@@ -476,7 +476,7 @@ public class MatterScanner extends MOBaseItem implements IBlockScanner
 
 	public boolean Scan(World world,ItemStack scanner,EntityPlayer player,ItemStack worldBlock,int x,int y,int z)
 	{
-		this.TagCompountCheck(scanner);
+		this.TagCompoundCheck(scanner);
 
         StringBuilder scanInfo = new StringBuilder();
 		IMatterDatabase database = getLink(world, scanner);

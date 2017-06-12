@@ -31,13 +31,13 @@ public class MatterDust extends MOBaseItem implements IRecyclable, IMatterItem
 
 	public int getDamage(ItemStack stack)
 	{
-		TagCompountCheck(stack);
+		TagCompoundCheck(stack);
 		return stack.getTagCompound().getInteger("Matter");
 	}
 
     public void setMatter(ItemStack itemStack,int matter)
     {
-        TagCompountCheck(itemStack);
+        TagCompoundCheck(itemStack);
         itemStack.getTagCompound().setInteger("Matter",matter);
     }
 
