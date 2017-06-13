@@ -1,11 +1,6 @@
 repositories {
 
 	ivy {
-		name "ExtraUtilities"
-		artifactPattern "http://addons-origin.cursecdn.com/files/2242/27/[module]-[revision].[ext]"
-	}
-
-	ivy {
 		name "BuildCraft"
 		artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
 	}
@@ -68,8 +63,7 @@ dependencies {
 	compile group: 'com.enderio.core', name: 'EnderCore', version: "${config.mc_version}-${config.endercore_version}", classifier: 'dev'
 	compile group: 'com.enderio', name: 'EnderIO', version: "${config.mc_version}-${config.enderio_version}", classifier: 'dev'
 
-	// Extra Utilities
-	compile group: 'ExtraUtilities', name: 'extrautilities', version: "${config.xu_version}", ext: 'jar'
+
 
 	// OpenComputers
 	compile group: 'li.cil.oc', name: 'OpenComputers', version: "${config.oc_version}", classifier:  'dev'

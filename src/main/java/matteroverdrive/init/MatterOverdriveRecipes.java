@@ -93,7 +93,7 @@ public class MatterOverdriveRecipes
         addShapedRecipe(new ItemStack(MatterOverdriveBlocks.decorative_floor_noise,12),"#G#","#Q#","#G#",'#',Blocks.clay,'B',Items.bone,'G',Blocks.gravel);
         addShapedRecipe(new ItemStack(MatterOverdriveBlocks.decorative_white_plate,8),"#W#","###","#W#",'#',MatterOverdriveBlocks.decorative_tritanium_plate,'W',Blocks.wool);
         addShapedRecipe(new ItemStack(MatterOverdriveBlocks.decorative_coils,9),"###","#C#","###",'#',MatterOverdriveBlocks.decorative_tritanium_plate,'C',MatterOverdriveItems.s_magnet);
-        addShapedRecipe(new ItemStack(MatterOverdriveBlocks.decorative_stripes,8),"#B#","###","#Y#",'#',MatterOverdriveBlocks.decorative_tritanium_plate,'B',new ItemStack(Items.dye),'Y',new ItemStack(Items.dye, 1,11));
+        addShapedRecipe(new ItemStack(MatterOverdriveBlocks.decorative_stripes,7),"#B#","###","#Y#", '#',MatterOverdriveBlocks.decorative_tritanium_plate,'B',new ItemStack(Items.dye),'Y',new ItemStack(Items.dye, 1,11));
         //dec striped plate
         addShapelessRecipe(new ItemStack(MatterOverdriveBlocks.decorative_tritanium_plate_stripe, 1), MatterOverdriveBlocks.decorative_tritanium_plate, new ItemStack(Items.dye, 1,11));
         //trit block. this is not necessary with fixing tritingot oredict entry
@@ -110,10 +110,8 @@ public class MatterOverdriveRecipes
         addShapedRecipe(new ItemStack(MatterOverdriveBlocks.decorative_tritanium_lamp, 8), "PPP","PGP","PPP", 'P',MatterOverdriveBlocks.decorative_tritanium_plate, 'G',Blocks.glowstone);
         addShapelessRecipe(new ItemStack(MatterOverdriveBlocks.decorative_tritanium_lamp), MatterOverdriveBlocks.decorative_tritanium_plate, Items.glowstone_dust);
 
-
         //iterative recipe registrations
         BlockTritaniumCrate.registerRecipes(MatterOverdriveBlocks.tritaniumCrate);
-
         //for loop for coloured trit blocks
         for (int iDye = 0; iDye < 16; iDye++)
         {

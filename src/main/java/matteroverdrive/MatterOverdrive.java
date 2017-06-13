@@ -27,6 +27,7 @@ import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import matteroverdrive.commands.*;
 import matteroverdrive.compat.MatterOverdriveCompat;
+import matteroverdrive.compat.modules.CompatTConstruct;
 import matteroverdrive.dialog.DialogRegistry;
 import matteroverdrive.entity.player.AndroidPlayer;
 import matteroverdrive.handler.*;
@@ -54,6 +55,10 @@ import java.util.concurrent.Executors;
 )
 public class MatterOverdrive
 {
+	@Instance(Reference.MOD_ID)
+	public static MatterOverdrive instance;
+
+
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
@@ -71,8 +76,7 @@ public class MatterOverdrive
     public static GuiHandler guiHandler;
     public static PacketPipeline packetPipeline;
 	public static BucketHandler bucketHandler;
-	@Instance(Reference.MOD_ID)
-	public static MatterOverdrive instance;
+
 	public static MatterOverdriveWorld moWorld;
 	public static EntityHandler entityHandler;
 	public static MatterRegistry matterRegistry;

@@ -28,5 +28,12 @@
 	compile group: 'cofh', name: 'ThermalExpansion', version: "[${config.mc_version}]${config.cofh_te_version}", ext: 'jar'
 	compile group: 'cofh', name: 'ThermalDynamics', version: "[${config.mc_version}]${config.cofh_td_version}", ext: 'jar'
 	
+		ivy {
+		name "ExtraUtilities"
+		artifactPattern "http://addons-origin.cursecdn.com/files/2242/27/[module]-[revision].[ext]"
+	}
+	
+		// Extra Utilities
+	compile group: 'ExtraUtilities', name: 'extrautilities', version: "${config.xu_version}", ext: 'jar'
 	
 trims from gradle stuff. added these via project libs

@@ -1,0 +1,339 @@
+/*
+ * This file is part of Matter Overdrive
+ * Copyright (c) 2015., Simeon Radivoev, All rights reserved.
+ *
+ * Matter Overdrive is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Matter Overdrive is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Matter Overdrive.  If not, see <http://www.gnu.org/licenses>.
+ */
+
+package matteroverdrive.compat.modules;
+
+import cofh.lib.util.helpers.ItemHelper;
+import cofh.thermalfoundation.item.TFItems;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import matteroverdrive.MatterOverdrive;
+import matteroverdrive.Reference;
+import matteroverdrive.compat.Compat;
+import matteroverdrive.handler.ConfigurationHandler;
+import matteroverdrive.init.MatterOverdriveBlocks;
+import matteroverdrive.init.MatterOverdriveFluids;
+import matteroverdrive.init.MatterOverdriveItems;
+import matteroverdrive.util.MOItemHelper;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraftforge.fluids.FluidStack;
+
+/**
+ * Created by Simeon on 11/1/2015.
+ */
+//@Compat("TConstruct")
+public class CompatTConstruct
+{
+
+
+//    @Compat.PreInit
+//    public static void preinit(FMLPreInitializationEvent event)
+//    {
+
+//        final String _ID = "Id";
+//        final String _NAME = "Name";
+//        final String _MOD_TARGET = "TConstruct";
+//        final ItemStack TRIT_INGOT = new ItemStack(MatterOverdriveItems.tritanium_ingot, 1);
+////        NBTTagCompound tagCompound = new NBTTagCompound();
+////        NBTTagCompound itemTag = new NBTTagCompound();
+//
+//        NBTTagCompound tag = new NBTTagCompound();
+//        tag.setInteger(_ID, TRITANIUM_METAL_FLUID_ID);
+//        tag.setString(_NAME, "Tritanium");
+//        //not sure on the local string ?
+//        tag.setString("localizationString", "Tritanium");
+//        tag.setInteger("Durability", 2048);
+//        tag.setInteger("MiningSpeed", 100);
+//        tag.setInteger("HarvestLevel",3);
+//        tag.setInteger("Attack", 3);
+//        tag.setFloat("HandleModifier", 1.0F);
+//        tag.setFloat("Bow_ProjectileSpeed", 1.0F);
+//        tag.setInteger("Bow_DrawSpeed", 1);
+//        tag.setFloat("Projectile_Mass", 1.0F);
+//        tag.setFloat("Projectile_Fragility", 1.0F);
+//        //style unused for now
+//        tag.setInteger("Color", Reference.COLOR_GUI_NORMAL.getColor());
+//        FMLInterModComms.sendMessage(_MOD_TARGET, "addMaterial", tag);
+//
+//        tag = new NBTTagCompound();
+//        tag.setString("FluidName", TRITANIUM_FLUID_NAME);
+//        tag.setInteger("MaterialId", TRITANIUM_METAL_FLUID_ID);
+//        FMLInterModComms.sendMessage(_MOD_TARGET, "addPartCastingMaterial", tag);
+//
+//        tag = new NBTTagCompound();
+//        tag.setInteger("MaterialId", TRITANIUM_METAL_FLUID_ID);
+//        tag.setTag("Item", TRIT_INGOT.writeToNBT(new NBTTagCompound()));
+//        tag.setInteger("Value", 2);
+//        FMLInterModComms.sendMessage(_MOD_TARGET, "addMaterialItem", tag);
+
+//
+//        tagCompound.setInteger("Id",TRITANIUM_METAL_FLUID_ID);
+//        tagCompound.setString("Name","Tritanium");
+//        tagCompound.setString("localizationString", "mo.item.tritanium_ingot");
+//        tagCompound.setInteger("Durability",2048);
+//        tagCompound.setInteger("MiningSpeed", 100);
+//        tagCompound.setInteger("HarvestLevel",3);
+//        tagCompound.setInteger("Attack", 3);
+//        tagCompound.setFloat("HandleModifier", 1.0F);
+//        tagCompound.setFloat("Bow_ProjectileSpeed", 1.0F);
+//        tagCompound.setInteger("Bow_DrawSpeed", 1);
+//        tagCompound.setFloat("Projectile_Mass", 1.0F);
+//        tagCompound.setFloat("Projectile_Fragility", 1.0F);
+//        //style unused
+//        tagCompound.setInteger("Color", Reference.COLOR_GUI_NORMAL.getColor());
+//        //optional tool modifiers
+//        tagCompound.setInteger("Reinforced", 3);
+//        FMLInterModComms.sendMessage("TConstruct", "addMaterial", tagCompound);
+//
+////        tagCompound = new NBTTagCompound();
+////        tagCompound.setInteger("MaterialId",TRITANIUM_METAL_FLUID_ID);
+////        (new ItemStack(MatterOverdriveItems.tritanium_ingot, 1, 0)).writeToNBT(itemTag);
+////        itemTag.setTag("Item", new ItemStack(MatterOverdriveItems.tritanium_ingot, 1).writeToNBT(new NBTTagCompound()));
+////        tagCompound.setTag("Item",itemTag);
+////        tagCompound.setInteger("Value",2);
+////        FMLInterModComms.sendMessage("TConstruct","addMaterialItem",tagCompound);
+//
+//        tagCompound = new NBTTagCompound();
+//        tagCompound.setInteger("MaterialId",TRITANIUM_METAL_FLUID_ID);
+//        tagCompound.setTag("Item", new ItemStack(MatterOverdriveItems.tritanium_ingot, 1).writeToNBT(new NBTTagCompound()));
+//        tagCompound.setInteger("Value",2);
+//        FMLInterModComms.sendMessage("TConstruct","addMaterialItem",tagCompound);
+//
+//        tagCompound = new NBTTagCompound();
+//        tagCompound.setString("FluidName", "tritanium.molten");
+//        tagCompound.setInteger("MaterialId",TRITANIUM_METAL_FLUID_ID);
+//        FMLInterModComms.sendMessage("TConstruct", "addPartCastingMaterial", tagCompound);
+//
+//        //i don't know if i need this
+////        tagCompound = new NBTTagCompound();
+////        tagCompound.setInteger("MaterialId",TRITANIUM_METAL_FLUID_ID);
+////        tagCompound.setInteger("Value",1);
+//
+//
+//        tagCompound = new NBTTagCompound();
+//        itemTag = new NBTTagCompound();
+//        (new ItemStack(MatterOverdriveBlocks.tritaniumOre)).writeToNBT(itemTag);
+//        tagCompound.setTag("Item",itemTag);
+//        tagCompound.setTag("Block",itemTag);
+//        tagCompound.setInteger("Temperature",800);
+//        (new FluidStack(MatterOverdriveFluids.moltenTritanium,288)).writeToNBT(tagCompound);
+//        FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tagCompound);
+//
+//        tagCompound = new NBTTagCompound();
+//        itemTag = new NBTTagCompound();
+//        (new ItemStack(MatterOverdriveItems.tritanium_ingot)).writeToNBT(itemTag);
+//        tagCompound.setTag("Item",itemTag);
+//        itemTag = new NBTTagCompound();
+//        (new ItemStack(MatterOverdriveBlocks.tritanium_block)).writeToNBT(itemTag);
+//        tagCompound.setTag("Block",itemTag);
+//        tagCompound.setInteger("Temperature",800);
+//        (new FluidStack(MatterOverdriveFluids.moltenTritanium,144)).writeToNBT(tagCompound);
+//        FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tagCompound);
+//
+//        tagCompound = new NBTTagCompound();
+//        itemTag = new NBTTagCompound();
+//        (new ItemStack(MatterOverdriveBlocks.tritanium_block)).writeToNBT(itemTag);
+//        tagCompound.setTag("Item",itemTag);
+//        itemTag = new NBTTagCompound();
+//        (new ItemStack(MatterOverdriveBlocks.tritanium_block)).writeToNBT(itemTag);
+//        tagCompound.setTag("Block",itemTag);
+//        tagCompound.setInteger("Temperature",800);
+//        (new FluidStack(MatterOverdriveFluids.moltenTritanium,1296)).writeToNBT(tagCompound);
+//        FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tagCompound);
+//        FMLInterModComms.sendMessage("TConstruct", "addFluxBattery", new ItemStack(MatterOverdriveItems.battery));
+//        FMLInterModComms.sendMessage("TConstruct", "addFluxBattery", new ItemStack(MatterOverdriveItems.hc_battery));
+
+    private static final int TRITANIUM_METAL_FLUID_ID = MatterOverdrive.configHandler.getInt("TConstruct molten tritanium ID", ConfigurationHandler.CATEGORY_COMPATIBILITY,201,"The ID of Molten Tritanium");
+    private static final String TRITANIUM_FLUID_NAME = "tritanium";
+    private static final String TRIT_MOLTEN = TRITANIUM_FLUID_NAME + ".molten";
+
+    public static void preinit()
+    {
+        addMaterial(TRITANIUM_METAL_FLUID_ID,
+                TRITANIUM_FLUID_NAME,
+                "Tritanium",
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                EnumChatFormatting.AQUA.toString(),
+                Reference.COLOR_GUI_NORMAL.getColor());
+
+        addPartCastinMaterial(TRITANIUM_FLUID_NAME,
+                666);
+
+        addMaterialItem(666,
+                new ItemStack(MatterOverdriveItems.tritanium_ingot),
+                2);
+
+        addPartBuilderMaterial(666,
+                new ItemStack(MatterOverdriveItems.tritanium_ingot),
+                2);
+        addMeltingItem(TRITANIUM_FLUID_NAME,
+                MOItemHelper.cloneBlock(MatterOverdriveBlocks.tritaniumOre, 1),
+                MOItemHelper.cloneBlock(MatterOverdriveBlocks.tritanium_block, 1),
+                1296,
+                800);
+
+
+
+    }
+
+    /**
+     * Adds a new material to the Tinkers Construct material registry. This will create a new
+     * material, which can be used by the Tinkers Construct mod, and it's various systems.
+     *
+     * @param id: A numeric ID to associate this fluid with. This is used to reference the
+     *            material in other methods such as the addMaterialItem method. The value must
+     *            be between Integer.MIN_VALUE and Integer.MAX_VALUE.
+     * @param name: A name to associate with this material.
+     * @param localization: A localization string used for this material. This is used in the
+     *            display name on various tool parts.
+     * @param durability: A base durability value for tools of this material.
+     * @param miningSpeed: A base mining speed for tools of this material.
+     * @param harvestLevel: A base harvest level for tools of this material.
+     * @param attack: A base attack value for tools of this material.
+     * @param handleModifier: A stat modifier provided by this handle. Less than 1 will reduce
+     *            various stats, and greater than 1 will improve them. This mainly effects the
+     *            durability of the tool.
+     * @param bowProjectileSpeed: A base speed for bow projectiles of this material.
+     * @param bowDrawSpeed: A base draw speed for bows of this material.
+     * @param projectileMass: A base mass for projectiles of this material.
+     * @param projectileFragility: A base fragility of projectiles made of this material.
+     * @param style: A style effect used for this material type. See EnumChatFormatting
+     * @param color: An integer representation of an RGB color.
+     */
+    public static void addMaterial (int id, String name, String localization, int durability, int miningSpeed, int harvestLevel, int attack, float handleModifier, float bowProjectileSpeed, int bowDrawSpeed, float projectileMass, float projectileFragility, String style, int color)
+    {
+
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setInteger("Id", id);
+        tag.setString("Name", name);
+        tag.setString("localizationString", localization);
+        tag.setInteger("Durability", durability);
+        tag.setInteger("MiningSpeed", miningSpeed);
+        tag.setInteger("HarvestLevel", harvestLevel);
+        tag.setInteger("Attack", attack);
+        tag.setFloat("HandleModifier", handleModifier);
+        tag.setFloat("Bow_ProjectileSpeed", bowProjectileSpeed);
+        tag.setInteger("Bow_DrawSpeed", bowDrawSpeed);
+        tag.setFloat("Projectile_Mass", projectileMass);
+        tag.setFloat("Projectile_Fragility", projectileFragility);
+        tag.setString("Style", style);
+        tag.setInteger("Color", color);
+        FMLInterModComms.sendMessage("TConstruct", "addMaterial", tag);
+    }
+
+    /**
+     * Registers a fluid as a valid casting fluid. This is used to enable a material to be
+     * casted into tool parts.
+     *
+     * @param fluidName: The fluidName of the fluid to allow casting for.
+     * @param materialID: A numeric ID that represents the material you want to be casted by
+     *            the fluid.
+     */
+    public static void addPartCastinMaterial (String fluidName, int materialID)
+    {
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setString("FluidName", fluidName);
+        tag.setInteger("MaterialId", materialID);
+        FMLInterModComms.sendMessage("TConstruct", "addPartCastingMaterial", tag);
+    }
+
+    /**
+     * Associates an Item or Block with a Tinkers Construct material. This associates items
+     * with the material that is required to repair your tool.
+     *
+     * @param materialID: A numeric ID that represents the material you want to associate the
+     *            Item or Block with.
+     * @param stack: An ItemStack containing the Item or Block you wish to associate.
+     * @param value: The value of the item being registered. Shards have a value of one.
+     */
+    public static void addMaterialItem (int materialID, ItemStack stack, int value)
+    {
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setInteger("MaterialId", materialID);
+        tag.setTag("Item", stack.writeToNBT(new NBTTagCompound()));
+        tag.setInteger("Value", value);
+        FMLInterModComms.sendMessage("TConstruct", "addMaterialItem", tag);
+    }
+
+    /**
+     * Associates an Item or Block with a Tinkers Construct material. This allows you to
+     * convert items to toolparts in the Part Builder dependant on value.
+     *
+     * @param materialID: A numeric ID that represents the material you want to associate the
+     *            Item or Block with.
+     * @param stack: An ItemStack containing the Item or Block you wish to associate.
+     * @param value: The value of the item being registered. Shards have a value of one.
+     */
+    public static void addPartBuilderMaterial (int materialID, ItemStack stack, int value)
+    {
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setInteger("MaterialId", materialID);
+        tag.setTag("Item", stack.writeToNBT(new NBTTagCompound()));
+        tag.setInteger("Value", value);
+        FMLInterModComms.sendMessage("TConstruct", "addPartBuilderMaterial", tag);
+    }
+
+    /**
+     * Adds a new input item or block for the smeltery. This will make a specified item, melt
+     * into the specified fluid.
+     *
+     * @param fluidName: The name of the fluid to be created by melting this item.
+     * @param input: An ItemStack that will be accepted as an input for the smeltery.
+     * @param displayBlock: A block to use when rendering the unmelted input inside of the
+     *            smeltery structure.
+     * @param amount: The amount of the fluid to generate per input. This is in mb(milibucket).
+     * @param temperature: The amount of heat required to melt the input item.
+     */
+    public static void addMeltingItem (String fluidName, ItemStack input, ItemStack displayBlock, int amount, int temperature)
+    {
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setString("FluidName", fluidName);
+        tag.setTag("Item", input.writeToNBT(new NBTTagCompound()));
+        tag.setTag("Block", displayBlock.writeToNBT(new NBTTagCompound()));
+        tag.setInteger("Amount", amount);
+        tag.setInteger("Temperature", temperature);
+        FMLInterModComms.sendMessage("TConstruct", "addSmelteryMelting", tag);
+    }
+
+    /**
+     * Adds a new FluxBatter to the list of battery modifiers in Tinkers Construct. A battery
+     * item is any Item which implements IEnergyContainerItem from cofh.api.energy. Flux
+     * Batteries are used in Tinkers Construct to give a tool the Flux modifier. A tool with
+     * the Flux modifier will use RF energy instead of durability. The size of the
+     * IEnergyContainerItem determines how much energy the tool can hold.
+     *
+     * @param stack: An ItemStack containing the IEnergyContainerItem.
+     */
+    public static void addFluxBattery (ItemStack stack)
+    {
+        FMLInterModComms.sendMessage("TConstruct", "addFluxBattery", stack);
+    }
+
+//    }
+}
